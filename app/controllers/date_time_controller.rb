@@ -12,6 +12,6 @@ class DateTimeController < ApplicationController
       @time = DateTime.now.change(:offset => Rational(Time.zone_offset(time_zone), seconds_in_a_day))
     end
     
-    respond_with(@time)
+    respond_with(@time, :callback => params[:callback])
   end
 end
